@@ -1,0 +1,54 @@
+"""
+UBUNTU SCANNER
+Developer: Jack Carmichael
+Email: carmichaeljr@s.dcsdk12.org
+"""
+
+
+from shutil import copy2
+from Backend.FileWrapper import File
+
+
+class ConfigFile(File):
+	def __init__(self):
+		super(ConfigFile,self).__init__("Backend/ProgramResources","filenames.txt")
+		self._removeDuplicates()
+		
+	def _removeDuplicates(self):
+		delList=list()
+		for _file in super(ConfigFile,self).openCloseFileGenerator('r'):
+			allLines=_file.readlines()
+		for x in range(0,len(allLines)-1):
+			if allLines[x] in allLines[x+1:]:
+				delList.append(allLines[x])
+		for item in delList:
+			super(ConfigFile,self).deleteLine(item)
+			super(ConfigFile,self).writeLine(item)
+			
+	def addFilePath(self,path):
+		returnString=""
+		for _file in super(ConfigFile,self).openCloseFileGenerator('r'):
+			allLines=_file.readlines()
+			try:
+				# dependency: The path is not dynamic for multiple OS
+				copy2(path,"Backend/ProgramResources/UnchangedConfigFiles")
+			except IOError:
+				returnStirng='"Error copying"'
+		if File.exists(path) and (not path in allLines):
+			super(ConfigFile,self).writeLine(path)
+		elif path in allLines:
+			returnString='"The given path is already in the path list."'+\
+						 '" .  Given path: {0}"'.format(path)
+		elif not File.exists(path):
+			returnString='"The given path does not exist."'+\
+						 '" . Given path: {0}"'.format(path)
+		return returnString
+			
+
+if __name__=="__main__":
+	testConfigFile=ConfigFile()
+	testConfigFile.writeLine("Haha")
+	print(testConfigFile.readLine(3))
+	testConfigFile.addFilePath("/media/jack/USB_16GB/Temp Python Programs/Ubuntu Scanner/Backend/ProgramResources/filenames.txt")
+	
+	

@@ -1,0 +1,12 @@
+/etc/ssh/sshd_config
+/etc/sudoers
+/etc/sudoers.d/README
+/etc/apache2/apache2.conf
+/etc/apache2/conf-available/security.conf
+/etc/apt/sources.list
+/etc/hosts
+/etc/host.conf
+/etc/passwd
+/etc/group
+/etc/pam.d/common-auth
+/etc/sysctl.conf

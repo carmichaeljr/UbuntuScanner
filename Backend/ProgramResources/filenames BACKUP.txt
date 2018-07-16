@@ -1,0 +1,25 @@
+^/etc/ssh/sshd_config
+^/etc/sudoers
+^/etc/sudoers.d/README
+/etc/httpd/httpd.conf
+^/etc/apache2/apache2.conf
+^/etc/apache2/conf-available/security.conf
+^/etc/apt/sources.list
+^/etc/hosts
+^/etc/host.conf
+^/etc/passwd
+^/etc/group
+^/etc/pam.d/common-auth
+/etc/pamd./common-passwd
+/etc/lightdm/lightdm.conf
+^/etc/sysctl.conf
+/etc/cron*
+/home/*/.bashrc
+/root/.bashrc
+/var/log/apache2*
+/var/log/dpkg.log
+/var/log/vsftpd*
+/etc/init.d/*
+
+## compare /bin/ to default, same thing to /var/log/ and /etc/init.d
+## compare /bin/ to default, same thing to /var/log/ and /etc/init.d
