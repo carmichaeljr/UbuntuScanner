@@ -1,7 +1,7 @@
 """
 UBUNTU SCANNER
 Developer: Jack Carmichael
-Email: carmichaeljr@s.dcsdk12.org
+Email: carmichaeljr@outlook.com
 Dependencies:
 	. You have to be logged in as sudo in order for the scanner to access the files.
 	. You have to have the necessary packages installed to view the config files
